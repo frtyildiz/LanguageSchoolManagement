@@ -25,7 +25,7 @@ public class ManagerController {
         return new ResponseEntity<>(saveText, HttpStatus.OK);
     }
 
-    @GetMapping("/findManagerById")
+    @GetMapping("/findManager")
     public ResponseEntity<Manager> findManagerById(@RequestParam Long managerId)
     {
         Manager manager = managerService.findManagerById(managerId);
@@ -40,7 +40,12 @@ public class ManagerController {
         return new ResponseEntity<>(updateText, HttpStatus.OK);
     }
 
+    @DeleteMapping("/deleteManager")
+    ResponseEntity<String> deleteManagerById(@RequestParam Long managerId)
+    {
+        String deleteText = managerService.deleteManagerById(managerId);
 
-
+        return new ResponseEntity<>(deleteText, HttpStatus.OK);
+    }
 
 }
