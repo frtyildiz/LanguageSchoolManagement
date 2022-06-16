@@ -55,8 +55,8 @@ public class ManagerServiceImpl implements ManagerService{
     @Transactional
     public String deleteManagerById(Long managerId)
     {
-        Manager manager = managerRepository.findById(managerId).get();
-
+        Optional<Manager> managerOptional = managerRepository.findById(managerId);
+        Manager manager = managerOptional.get();
         managerRepository.delete(manager);
 
         return "The Manager Deleted.";
