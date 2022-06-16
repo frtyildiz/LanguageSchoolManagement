@@ -33,7 +33,7 @@ public class ManagerServiceImpl implements ManagerService{
     }
 
     @Transactional
-    public Manager findManagerById (Long managerId)
+    public Manager findManagerById (long managerId)
     {
         return managerRepository.findById(managerId).get();
     }
@@ -53,7 +53,7 @@ public class ManagerServiceImpl implements ManagerService{
     }
 
     @Transactional
-    public String deleteManagerById(Long managerId)
+    public String deleteManagerById(long managerId)
     {
         Optional<Manager> managerOptional = managerRepository.findById(managerId);
         Manager manager = managerOptional.get();
