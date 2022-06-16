@@ -1,6 +1,7 @@
 package com.firatyildiz.LanguageSchoolManagement.controller;
 
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDto.SaveManagerRequestDto;
+import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDto.UpdateManagerNameAndLastnameRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.entity.Manager;
 import com.firatyildiz.LanguageSchoolManagement.service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,14 @@ public class ManagerController {
     {
         Manager manager = managerService.findManagerById(managerId);
         return new ResponseEntity<>(manager, HttpStatus.OK);
+    }
+
+    @PostMapping("updateManagerNameAndLastName")
+    public ResponseEntity<String> updateManagerNameAndLastName(@RequestBody UpdateManagerNameAndLastnameRequestDto updateManagerNameAndLastnameRequestDto)
+    {
+        String updateText = managerService.updateManagerNameAndLastnameById(updateManagerNameAndLastnameRequestDto);
+
+        return new ResponseEntity<>(updateText, HttpStatus.OK);
     }
 
 }
