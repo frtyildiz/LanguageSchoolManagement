@@ -2,6 +2,7 @@ package com.firatyildiz.LanguageSchoolManagement.service;
 
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.ManagerRequestDto.SaveManagerRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.ManagerRequestDto.UpdateManagerRequestDto;
+import com.firatyildiz.LanguageSchoolManagement.dtos.ResponseDto.ManagerResponseDto;
 import com.firatyildiz.LanguageSchoolManagement.entity.Manager;
 import com.firatyildiz.LanguageSchoolManagement.repository.ManagerRepository;
 import lombok.RequiredArgsConstructor;
@@ -9,6 +10,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -59,5 +62,20 @@ public class ManagerService {
         return "The Manager Deleted.";
     }
 
+    @Transactional
+    public List<ManagerResponseDto> findAllAuthor()
+    {
+        Iterable<Manager> managers = managerRepository.findAll();
+
+        List<ManagerResponseDto> managerResponseDtos = new ArrayList<>();
+
+        for (Manager manager : managers)
+        {
+            ManagerResponseDto managerResponseDto = modelMapper.map(manager, ManagerResponseDto.class);
+            managerResponseDtos.add(managerResponseDto);
+        }
+
+        return managerResponseDtos;
+    }
 
 }
