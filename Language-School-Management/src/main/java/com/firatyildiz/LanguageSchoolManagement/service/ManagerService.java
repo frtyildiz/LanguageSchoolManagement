@@ -25,6 +25,11 @@ public class ManagerService {
         return "Manager Has Been Created.";
     }
 
+    public Manager findManagerById (Long managerId)
+    {
+        return managerRepository.findById(managerId).get();
+    }
 
+    
 
 }
