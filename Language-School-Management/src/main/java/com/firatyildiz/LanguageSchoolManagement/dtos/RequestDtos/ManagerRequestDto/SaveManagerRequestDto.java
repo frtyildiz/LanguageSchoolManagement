@@ -1,4 +1,4 @@
-package com.firatyildiz.LanguageSchoolManagement.dtos.RequestDto;
+package com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.ManagerRequestDto;
 
 import lombok.Data;
 

@@ -1,7 +1,8 @@
 package com.firatyildiz.LanguageSchoolManagement.service;
 
-import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDto.SaveManagerRequestDto;
-import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDto.UpdateManagerNameAndLastnameRequestDto;
+import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.ManagerRequestDto.SaveManagerRequestDto;
+import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.ManagerRequestDto.UpdateManagerNameAndLastnameRequestDto;
+import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.ManagerRequestDto.UpdateManagerPhoneRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.entity.Manager;
 import com.firatyildiz.LanguageSchoolManagement.repository.ManagerRepository;
 import org.modelmapper.ModelMapper;
@@ -44,6 +45,21 @@ public class ManagerService {
 
         manager.setName(nameManagerRequest);
         manager.setLastname(lastnameManagerRequest);
+
+        managerRepository.save(manager);
+
+        return "Changes Saved.";
+    }
+
+    public String updateManagerPhoneById(UpdateManagerPhoneRequestDto updateManagersPhoneRequestDto)
+    {
+        long updateManagerRequestId = updateManagersPhoneRequestDto.getId();
+        Optional<Manager> managerOptional = managerRepository.findById(updateManagerRequestId);
+        Manager manager = managerOptional.get();
+
+        int phoneNumberManagerRequest = updateManagersPhoneRequestDto.getPhoneNumber();
+
+        manager.setPhoneNumber(phoneNumberManagerRequest);
 
         managerRepository.save(manager);
 
