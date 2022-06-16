@@ -7,6 +7,7 @@ import com.firatyildiz.LanguageSchoolManagement.repository.ManagerRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -18,6 +19,7 @@ public class ManagerService {
 
     private final ModelMapper modelMapper;
 
+    @Transactional
     public String saveManager(SaveManagerRequestDto saveManagerRequestDto)
     {
         Manager manager = modelMapper.map(saveManagerRequestDto, Manager.class);
@@ -27,11 +29,13 @@ public class ManagerService {
         return "Manager Has Been Created.";
     }
 
+    @Transactional
     public Manager findManagerById (Long managerId)
     {
         return managerRepository.findById(managerId).get();
     }
 
+    @Transactional
     public String updateManagerNameAndLastnameById(UpdateManagerRequestDto updateManagerRequestDto)
     {
         long updateManagerRequestId = updateManagerRequestDto.getId();
@@ -43,6 +47,16 @@ public class ManagerService {
         managerRepository.save(manager);
 
         return "Changes Saved.";
+    }
+
+    @Transactional
+    public String deleteManagerById(Long managerId)
+    {
+        Manager manager = managerRepository.findById(managerId).get();
+
+        managerRepository.delete(manager);
+
+        return "The Manager Deleted.";
     }
 
 
