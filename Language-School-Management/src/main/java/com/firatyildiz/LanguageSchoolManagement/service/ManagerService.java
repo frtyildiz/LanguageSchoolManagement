@@ -11,11 +11,11 @@ public interface ManagerService {
 
     String saveManager(SaveManagerRequestDto saveManagerRequestDto);
 
-    Manager findManagerById (Long managerId);
+    Manager findManagerById (long managerId);
 
     String updateManagerById(UpdateManagerRequestDto updateManagerRequestDto);
 
-    String deleteManagerById(Long managerId);
+    String deleteManagerById(long managerId);
 
     List<ManagerResponseDto> findAllManager();
 }
