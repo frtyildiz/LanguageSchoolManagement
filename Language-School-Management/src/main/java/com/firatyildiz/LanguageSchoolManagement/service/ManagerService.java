@@ -30,6 +30,6 @@ public class ManagerService {
         return managerRepository.findById(managerId).get();
     }
 
-    
+
 
 }
