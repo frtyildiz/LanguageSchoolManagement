@@ -20,9 +20,11 @@ public class ManagerService {
     {
         Manager manager = modelMapper.map(saveManagerRequestDto, Manager.class);
 
-        manager = (Manager) managerRepository.save(manager);
+        manager = managerRepository.save(manager);
 
-
+        return "Manager Has Been Created.";
     }
+
+    
 
 }
