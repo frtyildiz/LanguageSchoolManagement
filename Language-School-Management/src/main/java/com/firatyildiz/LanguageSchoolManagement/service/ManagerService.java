@@ -1,5 +1,7 @@
 package com.firatyildiz.LanguageSchoolManagement.service;
 
+import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDto.SaveManagerRequestDto;
+import com.firatyildiz.LanguageSchoolManagement.entity.Manager;
 import com.firatyildiz.LanguageSchoolManagement.repository.ManagerRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,13 @@ public class ManagerService {
     @Autowired
     ModelMapper modelMapper;
 
-    public String saveManager()
+    public String saveManager(SaveManagerRequestDto saveManagerRequestDto)
+    {
+        Manager manager = modelMapper.map(saveManagerRequestDto, Manager.class);
+
+        manager = (Manager) managerRepository.save(manager);
+
+
+    }
 
 }
