@@ -35,9 +35,9 @@ public class ManagerController {
     }
 
     @PostMapping("/updateManager")
-    public ResponseEntity<String> updateManagerNameAndLastName(@RequestBody UpdateManagerRequestDto updateManagerNameAndLastnameRequestDto)
+    public ResponseEntity<String> updateManager(@RequestBody UpdateManagerRequestDto updateManagerNameAndLastnameRequestDto)
     {
-        String updateText = managerService.updateManagerNameAndLastnameById(updateManagerNameAndLastnameRequestDto);
+        String updateText = managerService.updateManagerById(updateManagerNameAndLastnameRequestDto);
 
         return new ResponseEntity<>(updateText, HttpStatus.OK);
     }

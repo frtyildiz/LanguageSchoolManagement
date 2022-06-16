@@ -9,13 +9,13 @@ import java.util.List;
 
 public interface ManagerService {
 
-    public String saveManager(SaveManagerRequestDto saveManagerRequestDto);
+    String saveManager(SaveManagerRequestDto saveManagerRequestDto);
 
-    public Manager findManagerById (Long managerId);
+    Manager findManagerById (Long managerId);
 
-    public String updateManagerNameAndLastnameById(UpdateManagerRequestDto updateManagerRequestDto);
+    String updateManagerById(UpdateManagerRequestDto updateManagerRequestDto);
 
-    public String deleteManagerById(Long managerId);
+    String deleteManagerById(Long managerId);
 
-    public List<ManagerResponseDto> findAllManager();
+    List<ManagerResponseDto> findAllManager();
 }

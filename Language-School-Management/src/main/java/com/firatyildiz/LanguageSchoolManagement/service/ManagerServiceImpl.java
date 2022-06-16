@@ -39,7 +39,7 @@ public class ManagerServiceImpl implements ManagerService{
     }
 
     @Transactional
-    public String updateManagerNameAndLastnameById(UpdateManagerRequestDto updateManagerRequestDto)
+    public String updateManagerById(UpdateManagerRequestDto updateManagerRequestDto)
     {
         long updateManagerRequestId = updateManagerRequestDto.getId();
         Optional<Manager> managerOptional = managerRepository.findById(updateManagerRequestId);
