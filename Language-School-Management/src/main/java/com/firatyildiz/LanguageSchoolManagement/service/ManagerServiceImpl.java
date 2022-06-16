@@ -16,13 +16,13 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class ManagerServiceImpl implements ManagerService{
 
     private final ManagerRepository managerRepository;
 
     private final ModelMapper modelMapper;
 
-    @Transactional
     public String saveManager(SaveManagerRequestDto saveManagerRequestDto)
     {
         Manager manager = modelMapper.map(saveManagerRequestDto, Manager.class);
@@ -32,13 +32,13 @@ public class ManagerServiceImpl implements ManagerService{
         return "Manager Has Been Created.";
     }
 
-    @Transactional
+
     public Manager findManagerById (long managerId)
     {
         return managerRepository.findById(managerId).get();
     }
 
-    @Transactional
+
     public String updateManagerById(UpdateManagerRequestDto updateManagerRequestDto)
     {
         long updateManagerRequestId = updateManagerRequestDto.getId();
@@ -52,7 +52,7 @@ public class ManagerServiceImpl implements ManagerService{
         return "Changes Saved.";
     }
 
-    @Transactional
+
     public String deleteManagerById(long managerId)
     {
         Optional<Manager> managerOptional = managerRepository.findById(managerId);
@@ -62,7 +62,7 @@ public class ManagerServiceImpl implements ManagerService{
         return "The Manager Deleted.";
     }
 
-    @Transactional
+
     public List<ManagerResponseDto> findAllManager()
     {
         Iterable<Manager> managers = managerRepository.findAll();
