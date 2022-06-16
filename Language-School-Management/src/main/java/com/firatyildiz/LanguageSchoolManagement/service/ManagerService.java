@@ -1,24 +1,22 @@
 package com.firatyildiz.LanguageSchoolManagement.service;
 
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.ManagerRequestDto.SaveManagerRequestDto;
-import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.ManagerRequestDto.UpdateManagerNameAndLastnameRequestDto;
-import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.ManagerRequestDto.UpdateManagerPhoneRequestDto;
+import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.ManagerRequestDto.UpdateManagerRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.entity.Manager;
 import com.firatyildiz.LanguageSchoolManagement.repository.ManagerRepository;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class ManagerService {
 
-    @Autowired
-    ManagerRepository managerRepository;
+    private final ManagerRepository managerRepository;
 
-    @Autowired
-    ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
 
     public String saveManager(SaveManagerRequestDto saveManagerRequestDto)
     {
@@ -34,36 +32,18 @@ public class ManagerService {
         return managerRepository.findById(managerId).get();
     }
 
-    public String updateManagerNameAndLastnameById(UpdateManagerNameAndLastnameRequestDto updateManagerRequestDto)
+    public String updateManagerNameAndLastnameById(UpdateManagerRequestDto updateManagerRequestDto)
     {
         long updateManagerRequestId = updateManagerRequestDto.getId();
         Optional<Manager> managerOptional = managerRepository.findById(updateManagerRequestId);
         Manager manager = managerOptional.get();
 
-        String nameManagerRequest = updateManagerRequestDto.getName();
-        String lastnameManagerRequest = updateManagerRequestDto.getLastname();
-
-        manager.setName(nameManagerRequest);
-        manager.setLastname(lastnameManagerRequest);
+        manager = modelMapper.map(updateManagerRequestDto, Manager.class);
 
         managerRepository.save(manager);
 
         return "Changes Saved.";
     }
 
-    public String updateManagerPhoneById(UpdateManagerPhoneRequestDto updateManagersPhoneRequestDto)
-    {
-        long updateManagerRequestId = updateManagersPhoneRequestDto.getId();
-        Optional<Manager> managerOptional = managerRepository.findById(updateManagerRequestId);
-        Manager manager = managerOptional.get();
-
-        int phoneNumberManagerRequest = updateManagersPhoneRequestDto.getPhoneNumber();
-
-        manager.setPhoneNumber(phoneNumberManagerRequest);
-
-        managerRepository.save(manager);
-
-        return "Changes Saved.";
-    }
 
 }
