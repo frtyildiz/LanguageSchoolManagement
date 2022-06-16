@@ -63,7 +63,7 @@ public class ManagerService {
     }
 
     @Transactional
-    public List<ManagerResponseDto> findAllAuthor()
+    public List<ManagerResponseDto> findAllManager()
     {
         Iterable<Manager> managers = managerRepository.findAll();
 

@@ -2,12 +2,15 @@ package com.firatyildiz.LanguageSchoolManagement.controller;
 
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.ManagerRequestDto.SaveManagerRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.ManagerRequestDto.UpdateManagerRequestDto;
+import com.firatyildiz.LanguageSchoolManagement.dtos.ResponseDto.ManagerResponseDto;
 import com.firatyildiz.LanguageSchoolManagement.entity.Manager;
 import com.firatyildiz.LanguageSchoolManagement.service.ManagerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/Manager")
@@ -46,6 +49,14 @@ public class ManagerController {
         String deleteText = managerService.deleteManagerById(managerId);
 
         return new ResponseEntity<>(deleteText, HttpStatus.OK);
+    }
+
+    @GetMapping("/findAllManager")
+    public ResponseEntity<List<ManagerResponseDto>> findAllManager()
+    {
+        List<ManagerResponseDto> managerResponseDtos = managerService.findAllManager();
+
+        return new ResponseEntity<>(managerResponseDtos, HttpStatus.OK);
     }
 
 }
