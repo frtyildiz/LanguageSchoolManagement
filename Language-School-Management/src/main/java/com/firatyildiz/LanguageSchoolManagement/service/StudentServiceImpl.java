@@ -21,7 +21,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 @Transactional
-public class StudentServiceImpl {
+public class StudentServiceImpl implements StudentService{
 
     private final StudentRepository studentRepository;
 
