@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class UpdateStudentRequestDto {
 
     private long id;
-    
+
     private int identityCardNo;
 
     private String name;
