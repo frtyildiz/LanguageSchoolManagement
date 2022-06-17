@@ -2,10 +2,6 @@ package com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.TeacherRequest
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
 import java.time.LocalDate;
 
 @Data
