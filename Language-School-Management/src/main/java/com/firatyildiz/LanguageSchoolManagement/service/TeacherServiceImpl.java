@@ -1,5 +1,7 @@
 package com.firatyildiz.LanguageSchoolManagement.service;
 
+import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.TeacherRequestDto.SaveTeacherRequestDto;
+import com.firatyildiz.LanguageSchoolManagement.entity.Teacher;
 import com.firatyildiz.LanguageSchoolManagement.repository.CourseRepository;
 import com.firatyildiz.LanguageSchoolManagement.repository.TeacherRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,10 +20,21 @@ public class TeacherServiceImpl {
 
     private final ModelMapper modelMapper;
 
-    public String saveTeacher ()
+    public String saveTeacher (SaveTeacherRequestDto saveTeacherRequestDto)
+    {
+        Teacher teacher = modelMapper.map(saveTeacherRequestDto, Teacher.class);
 
+        teacher = teacherRepository.save(teacher);
 
+        return "Teacher Has Been Created.";
+    }
 
+    public Teacher findTeacherById (long teacherId)
+    {
+        return teacherRepository.findById(teacherId).get();
+    }
+
+    public 
 
 
 
