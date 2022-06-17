@@ -32,7 +32,7 @@ public class StudentServiceImpl {
         return studentRepository.findById(studentId).get();
     }
 
-    
+    public String updateStudentById
 
 
 }
