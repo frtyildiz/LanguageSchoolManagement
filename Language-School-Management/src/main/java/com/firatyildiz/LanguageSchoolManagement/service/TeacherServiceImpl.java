@@ -3,6 +3,7 @@ package com.firatyildiz.LanguageSchoolManagement.service;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.TeacherRequestDto.AddCourseToTeacherRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.TeacherRequestDto.SaveTeacherRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.TeacherRequestDto.UpdateTeacherRequestDto;
+import com.firatyildiz.LanguageSchoolManagement.entity.Course;
 import com.firatyildiz.LanguageSchoolManagement.entity.Teacher;
 import com.firatyildiz.LanguageSchoolManagement.repository.CourseRepository;
 import com.firatyildiz.LanguageSchoolManagement.repository.TeacherRepository;
@@ -11,6 +12,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -54,8 +57,23 @@ public class TeacherServiceImpl {
 
     public String addCourseToTeacherById (AddCourseToTeacherRequestDto addCourseToTeacherRequestDto)
     {
-        long teacherId = 
+        long teacherIdRequest = addCourseToTeacherRequestDto.getTeacherId();
+        long courseIdRequest = addCourseToTeacherRequestDto.getCourseId();
+
+        Teacher teacher = teacherRepository.findById(teacherIdRequest).get();
+        Course course = courseRepository.findById(courseIdRequest).get();
+
+        List<Course> courses = new ArrayList<>();
+        courses.add(course);
+
+        teacher.setCourses(courses);
+
+        teacherRepository.save(teacher);
+
+        return "Added Course";
     }
+
+    
 
 
 

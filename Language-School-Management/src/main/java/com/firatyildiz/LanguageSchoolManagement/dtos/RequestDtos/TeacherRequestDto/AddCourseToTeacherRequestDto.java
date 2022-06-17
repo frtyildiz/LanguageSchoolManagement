@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class AddCourseToTeacherRequestDto {
 
-    private long studentId;
+    private long teacherId;
 
     private long courseId;
 }
