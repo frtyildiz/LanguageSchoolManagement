@@ -3,7 +3,7 @@ package com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.StudentRequest
 import lombok.Data;
 
 @Data
-public class AddCourseToStudentById {
+public class AddCourseToStudentRequestDto {
 
     private long studentId;
 

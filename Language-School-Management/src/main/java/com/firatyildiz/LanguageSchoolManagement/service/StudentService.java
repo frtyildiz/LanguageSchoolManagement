@@ -1,6 +1,6 @@
 package com.firatyildiz.LanguageSchoolManagement.service;
 
-import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.StudentRequestDto.AddCourseToStudentById;
+import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.StudentRequestDto.AddCourseToStudentRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.StudentRequestDto.SaveStudentRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.StudentRequestDto.UpdateStudentRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.ResponseDto.StudentResponseDto;
@@ -17,7 +17,7 @@ public interface StudentService {
     String updateStudentById (UpdateStudentRequestDto updateStudentRequestDto);
 
 
-    String addCourseToStudentById (AddCourseToStudentById addCourseToStudentById);
+    String addCourseToStudentById (AddCourseToStudentRequestDto addCourseToStudentById);
 
 
     String deleteStudentById (long studentId);

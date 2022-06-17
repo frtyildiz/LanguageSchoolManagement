@@ -1,7 +1,7 @@
 package com.firatyildiz.LanguageSchoolManagement.service;
 
 
-import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.StudentRequestDto.AddCourseToStudentById;
+import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.StudentRequestDto.AddCourseToStudentRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.StudentRequestDto.SaveStudentRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.StudentRequestDto.UpdateStudentRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.ResponseDto.StudentResponseDto;
@@ -57,7 +57,7 @@ public class StudentServiceImpl implements StudentService{
         return "Changes Saved.";
     }
 
-    public String addCourseToStudentById (AddCourseToStudentById addCourseToStudentById)
+    public String addCourseToStudentById (AddCourseToStudentRequestDto addCourseToStudentById)
     {
         long studentId = addCourseToStudentById.getStudentId();
         long courseId = addCourseToStudentById.getCourseId();
