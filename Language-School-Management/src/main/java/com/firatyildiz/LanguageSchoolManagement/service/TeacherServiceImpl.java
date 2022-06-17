@@ -20,7 +20,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 @Transactional
-public class TeacherServiceImpl {
+public class TeacherServiceImpl implements TeacherService {
 
     private final TeacherRepository teacherRepository;
 
