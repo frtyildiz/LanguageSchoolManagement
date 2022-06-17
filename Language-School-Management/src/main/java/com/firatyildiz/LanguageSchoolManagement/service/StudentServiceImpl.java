@@ -71,11 +71,18 @@ public class StudentServiceImpl {
 
         studentRepository.save(student);
 
-        return "Added Course The Classroom";
+        return "Added Course";
 
     }
 
-    
+    public String deleteStudentById (long studentId)
+    {
+        Optional<Student> studentOptional = studentRepository.findById(studentId);
+        Student student = studentOptional.get();
+        studentRepository.delete(student);
+
+        return "The Student Deleted.";
+    }
 
 
 }
