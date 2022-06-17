@@ -34,7 +34,7 @@ public class ClassroomServiceImpl implements ClassroomService{
 
         classroom = classroomRepository.save(classroom);
 
-        return "Manager Has Been Created.";
+        return "Classroom Has Been Created.";
     }
 
     public Classroom findClassroomById (long classroomId)
