@@ -1,15 +1,20 @@
 package com.firatyildiz.LanguageSchoolManagement.service;
 
 
+import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.StudentRequestDto.AddCourseToStudentById;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.StudentRequestDto.SaveStudentRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.StudentRequestDto.UpdateStudentRequestDto;
+import com.firatyildiz.LanguageSchoolManagement.entity.Course;
 import com.firatyildiz.LanguageSchoolManagement.entity.Student;
+import com.firatyildiz.LanguageSchoolManagement.repository.CourseRepository;
 import com.firatyildiz.LanguageSchoolManagement.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -18,6 +23,8 @@ import java.util.Optional;
 public class StudentServiceImpl {
 
     private final StudentRepository studentRepository;
+
+    private final CourseRepository courseRepository;
 
     private final ModelMapper modelMapper;
 
@@ -49,7 +56,26 @@ public class StudentServiceImpl {
         return "Changes Saved.";
     }
 
-    public String addCourseToStudentById ()
+    public String addCourseToStudentById (AddCourseToStudentById addCourseToStudentById)
+    {
+        long studentId = addCourseToStudentById.getStudentId();
+        long courseId = addCourseToStudentById.getCourseId();
+
+        Student student = studentRepository.findById(studentId).get();
+        Course course = courseRepository.findById(courseId).get();
+
+        List<Course> courses = new ArrayList<>();
+        courses.add(course);
+
+        student.setCourses(courses);
+
+        studentRepository.save(student);
+
+        return "Added Course The Classroom";
+
+    }
+
+    
 
 
 }
