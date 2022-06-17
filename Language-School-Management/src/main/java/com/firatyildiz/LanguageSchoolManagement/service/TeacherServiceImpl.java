@@ -73,7 +73,14 @@ public class TeacherServiceImpl {
         return "Added Course";
     }
 
-    
+    public String deleteTeacherById (long teacherId)
+    {
+        Optional<Teacher> teacherOptional = teacherRepository.findById(teacherId);
+        Teacher teacher = teacherOptional.get();
+        teacherRepository.delete(teacher);
+
+        return "The Teacher Deleted.";
+    }
 
 
 
