@@ -3,6 +3,7 @@ package com.firatyildiz.LanguageSchoolManagement.service;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.TeacherRequestDto.AddCourseToTeacherRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.TeacherRequestDto.SaveTeacherRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.TeacherRequestDto.UpdateTeacherRequestDto;
+import com.firatyildiz.LanguageSchoolManagement.dtos.ResponseDto.TeacherResponseDto;
 import com.firatyildiz.LanguageSchoolManagement.entity.Course;
 import com.firatyildiz.LanguageSchoolManagement.entity.Teacher;
 import com.firatyildiz.LanguageSchoolManagement.repository.CourseRepository;
@@ -82,7 +83,20 @@ public class TeacherServiceImpl {
         return "The Teacher Deleted.";
     }
 
+    public List<TeacherResponseDto> findAllTeacher ()
+    {
+        Iterable<Teacher> teachers = teacherRepository.findAll();
 
+        List<TeacherResponseDto> teacherResponseDtos = new ArrayList<>();
+
+        for (Teacher teacher : teachers)
+        {
+            TeacherResponseDto teacherResponseDto = modelMapper.map(teacher, TeacherResponseDto.class);
+            teacherResponseDtos.add(teacherResponseDto);
+        }
+
+        return teacherResponseDtos;
+    }
 
 
 }
