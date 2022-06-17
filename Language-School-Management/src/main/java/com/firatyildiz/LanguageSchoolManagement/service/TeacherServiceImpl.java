@@ -1,5 +1,6 @@
 package com.firatyildiz.LanguageSchoolManagement.service;
 
+import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.TeacherRequestDto.AddCourseToTeacherRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.TeacherRequestDto.SaveTeacherRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.TeacherRequestDto.UpdateTeacherRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.entity.Teacher;
@@ -51,7 +52,10 @@ public class TeacherServiceImpl {
         return "Changes Saved.";
     }
 
-    public String addCourseToTeacherById ()
+    public String addCourseToTeacherById (AddCourseToTeacherRequestDto addCourseToTeacherRequestDto)
+    {
+        long teacherId = 
+    }
 
 
 
