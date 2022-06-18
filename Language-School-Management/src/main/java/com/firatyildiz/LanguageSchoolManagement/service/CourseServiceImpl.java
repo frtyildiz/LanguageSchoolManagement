@@ -22,7 +22,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 @Transactional
-public class CourseServiceImpl {
+public class CourseServiceImpl implements CourseService{
 
     private final CourseRepository courseRepository;
 
