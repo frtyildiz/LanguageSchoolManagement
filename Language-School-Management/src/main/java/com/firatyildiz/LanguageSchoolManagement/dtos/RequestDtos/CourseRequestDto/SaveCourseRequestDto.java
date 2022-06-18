@@ -13,7 +13,6 @@ import java.util.List;
 @Data
 public class SaveCourseRequestDto {
 
-    private long id;
 
 
     private String courseName;

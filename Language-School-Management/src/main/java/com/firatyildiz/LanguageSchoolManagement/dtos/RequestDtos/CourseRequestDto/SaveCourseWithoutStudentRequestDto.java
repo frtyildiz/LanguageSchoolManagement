@@ -9,8 +9,6 @@ import java.time.LocalDate;
 @Data
 public class SaveCourseWithoutStudentRequestDto {
 
-    private long id;
-
 
     private String courseName;
 
