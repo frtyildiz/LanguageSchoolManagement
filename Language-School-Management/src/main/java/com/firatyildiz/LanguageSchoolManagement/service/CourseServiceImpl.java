@@ -30,14 +30,23 @@ public class CourseServiceImpl implements CourseService{
 
     private final ModelMapper modelMapper;
 
+    private final Course course;
+
 
     public String saveCourse (SaveCourseRequestDto saveCourseResponseDto)
     {
-        Course course = modelMapper.map(saveCourseResponseDto, Course.class);
+        if (course.getCapacity() < 0)
+        {
+            return "Capacity is full";
+        }
+        else
+        {
+            Course course = modelMapper.map(saveCourseResponseDto, Course.class);
 
-        course = courseRepository.save(course);
+            course = courseRepository.save(course);
 
-        return "Classroom Has Been Created.";
+            return "Classroom Has Been Created.";
+        }
     }
 
     public String saveCourseWithoutStudent (SaveCourseWithoutStudentRequestDto saveCourseWithoutStudentRequestDto)
@@ -56,18 +65,25 @@ public class CourseServiceImpl implements CourseService{
 
     public String addStudentToCourseByIds (SaveStudentToCourseRequestDto saveStudentToCourseRequestDto)
     {
-        long courseId = saveStudentToCourseRequestDto.getCourseId();
-        long studentId = saveStudentToCourseRequestDto.getStudentId();
+        if (course.getCapacity() < 0)
+        {
+            return "Capacity is full.";
+        }
+        else
+        {
+            long courseId = saveStudentToCourseRequestDto.getCourseId();
+            long studentId = saveStudentToCourseRequestDto.getStudentId();
 
-        Course course = courseRepository.findById(courseId).get();
-        Student student = studentRepository.findById(studentId).get();
+            Course course = courseRepository.findById(courseId).get();
+            Student student = studentRepository.findById(studentId).get();
 
-        List<Student> students = new ArrayList<>();
-        students.add(student);
+            List<Student> students = new ArrayList<>();
+            students.add(student);
 
-        course.setStudents(students);
+            course.setStudents(students);
 
-        return "Added Student";
+            return "Added Student";
+        }
     }
 
     public String updateCourseById (UpdateCourseRequestDto updateCourseRequestDto)
