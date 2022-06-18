@@ -1,4 +1,4 @@
-package com.firatyildiz.LanguageSchoolManagement.dtos.ResponseDto;
+package com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.CourseRequestDto;
 
 import com.firatyildiz.LanguageSchoolManagement.entity.Classroom;
 import com.firatyildiz.LanguageSchoolManagement.entity.Teacher;
@@ -7,7 +7,7 @@ import lombok.Data;
 import java.time.LocalDate;
 
 @Data
-public class CourseResponseDto {
+public class UpdateCourseRequestDto {
 
     private long id;
 

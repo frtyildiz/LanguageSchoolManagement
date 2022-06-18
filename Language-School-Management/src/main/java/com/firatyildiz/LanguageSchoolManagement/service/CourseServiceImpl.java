@@ -4,6 +4,7 @@ package com.firatyildiz.LanguageSchoolManagement.service;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.CourseRequestDto.SaveCourseRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.CourseRequestDto.SaveCourseWithoutStudentRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.CourseRequestDto.SaveStudentToCourseRequestDto;
+import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.CourseRequestDto.UpdateCourseRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.entity.Course;
 import com.firatyildiz.LanguageSchoolManagement.entity.Student;
 import com.firatyildiz.LanguageSchoolManagement.repository.CourseRepository;
@@ -67,6 +68,9 @@ public class CourseServiceImpl {
         return "Added Student";
     }
 
-    public String updateCourseById ()
+    public String updateCourseById (UpdateCourseRequestDto courseResponseDto)
+    {
+
+    }
 
 }
