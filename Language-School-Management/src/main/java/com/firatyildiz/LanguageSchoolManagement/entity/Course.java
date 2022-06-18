@@ -48,4 +48,13 @@ public class Course {
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Student> students = new ArrayList<>();
+
+    public int getCapacity() {
+        return capacity - students.size();
+    }
+
+    public void setCapacity(int capacity) {
+        Classroom classr = new Classroom();
+        this.capacity = classr.getCapacity();
+    }
 }
