@@ -2,6 +2,7 @@ package com.firatyildiz.LanguageSchoolManagement.service;
 
 
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.CourseRequestDto.SaveCourseRequestDto;
+import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.CourseRequestDto.SaveCourseWithoutStudentRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.entity.Course;
 import com.firatyildiz.LanguageSchoolManagement.repository.CourseRepository;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +28,20 @@ public class CourseServiceImpl {
         return "Classroom Has Been Created.";
     }
 
+    public String saveCourseWithoutStudent (SaveCourseWithoutStudentRequestDto saveCourseWithoutStudentRequestDto)
+    {
+        Course course = modelMapper.map(saveCourseWithoutStudentRequestDto, Course.class);
 
+        course = courseRepository.save(course);
+
+        return "Classroom Has Been Created.";
+    }
+
+    public Course findCourseById (long courseId)
+    {
+        return courseRepository.findById(courseId).get();
+    }
+
+    public String addStudentToCourseByIds ()
 
 }
