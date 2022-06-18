@@ -31,6 +31,9 @@ public class Course {
     @Column(name = "end_date")
     private LocalDate endDate;
 
+    @Column(name = "capacity")
+    private int capacity;
+
     @Lob
     @Column(name = "courses_materials")
     private byte[] materials;
