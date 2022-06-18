@@ -26,7 +26,7 @@ public class SaveCourseRequestDto {
 
     private LocalDate endDate;
 
-
+    private int capacity;
     private byte[] materials;
 
 
