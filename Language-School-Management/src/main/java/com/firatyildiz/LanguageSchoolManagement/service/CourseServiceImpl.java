@@ -5,6 +5,7 @@ import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.CourseRequestDt
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.CourseRequestDto.SaveCourseWithoutStudentRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.CourseRequestDto.SaveStudentToCourseRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.CourseRequestDto.UpdateCourseRequestDto;
+import com.firatyildiz.LanguageSchoolManagement.dtos.ResponseDto.CourseResponseDto;
 import com.firatyildiz.LanguageSchoolManagement.entity.Course;
 import com.firatyildiz.LanguageSchoolManagement.entity.Student;
 import com.firatyildiz.LanguageSchoolManagement.repository.CourseRepository;
@@ -92,6 +93,19 @@ public class CourseServiceImpl {
         return "The Course Deleted.";
     }
 
-    public List<>
+    public List<CourseResponseDto> findAllCourse ()
+    {
+        Iterable<Course> courses = courseRepository.findAll();
+
+        List<CourseResponseDto> courseResponseDtos = new ArrayList<>();
+
+        for (Course course : courses)
+        {
+            CourseResponseDto courseResponseDto = modelMapper.map(course, CourseResponseDto.class);
+            courseResponseDtos.add(courseResponseDto);
+        }
+
+        return courseResponseDtos;
+    }
 
 }
