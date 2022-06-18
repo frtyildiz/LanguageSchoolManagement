@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -68,9 +69,29 @@ public class CourseServiceImpl {
         return "Added Student";
     }
 
-    public String updateCourseById (UpdateCourseRequestDto courseResponseDto)
+    public String updateCourseById (UpdateCourseRequestDto updateCourseRequestDto)
     {
+        long updateCourseRequestId = updateCourseRequestDto.getId();
 
+        Optional<Course> optionalCourse = courseRepository.findById(updateCourseRequestId);
+        Course course = optionalCourse.get();
+
+        course = modelMapper.map(updateCourseRequestDto, Course.class);
+
+        courseRepository.save(course);
+        return "Changes Saved.";
     }
+
+    public String deleteCourseById (long courseId)
+    {
+        Optional<Course> optionalCourse = courseRepository.findById(courseId);
+        Course course = optionalCourse.get();
+
+        courseRepository.delete(course);
+
+        return "The Course Deleted.";
+    }
+
+    public List<>
 
 }
