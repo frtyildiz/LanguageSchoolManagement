@@ -21,7 +21,7 @@ public class CourseResponseDto {
 
     private LocalDate endDate;
 
-
+    private int capacity;
     private Classroom classroom;
 
 
