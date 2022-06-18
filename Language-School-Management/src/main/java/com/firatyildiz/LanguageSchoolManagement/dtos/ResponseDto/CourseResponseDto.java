@@ -3,8 +3,6 @@ package com.firatyildiz.LanguageSchoolManagement.dtos.ResponseDto;
 import com.firatyildiz.LanguageSchoolManagement.entity.Classroom;
 import com.firatyildiz.LanguageSchoolManagement.entity.Teacher;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public class CourseResponseDto {
@@ -23,7 +21,7 @@ public class CourseResponseDto {
 
     private LocalDate endDate;
 
-    
+
     private Classroom classroom;
 
 
