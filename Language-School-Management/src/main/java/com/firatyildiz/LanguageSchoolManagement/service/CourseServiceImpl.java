@@ -1,6 +1,8 @@
 package com.firatyildiz.LanguageSchoolManagement.service;
 
 
+import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.CourseRequestDto.SaveCourseRequestDto;
+import com.firatyildiz.LanguageSchoolManagement.entity.Course;
 import com.firatyildiz.LanguageSchoolManagement.repository.CourseRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -16,6 +18,15 @@ public class CourseServiceImpl {
 
     private final ModelMapper modelMapper;
 
-    public String saveCourse ()
+    public String saveCourse (SaveCourseRequestDto saveCourseResponseDto)
+    {
+        Course course = modelMapper.map(saveCourseResponseDto, Course.class);
+
+        course = courseRepository.save(course);
+
+        return "Classroom Has Been Created.";
+    }
+
+
 
 }

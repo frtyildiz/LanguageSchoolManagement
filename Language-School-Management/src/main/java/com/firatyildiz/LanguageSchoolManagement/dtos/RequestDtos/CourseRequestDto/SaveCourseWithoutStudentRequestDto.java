@@ -1,17 +1,13 @@
 package com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.CourseRequestDto;
 
 import com.firatyildiz.LanguageSchoolManagement.entity.Classroom;
-import com.firatyildiz.LanguageSchoolManagement.entity.Student;
 import com.firatyildiz.LanguageSchoolManagement.entity.Teacher;
 import lombok.Data;
 
-
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
-public class SaveCourseResponseDto {
+public class SaveCourseWithoutStudentRequestDto {
 
     private long id;
 
@@ -35,7 +31,4 @@ public class SaveCourseResponseDto {
 
 
     private Teacher teacher;
-
-
-    private List<Student> students = new ArrayList<>();
 }
