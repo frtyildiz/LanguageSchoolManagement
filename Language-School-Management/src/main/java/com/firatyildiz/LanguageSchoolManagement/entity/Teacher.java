@@ -28,7 +28,7 @@ public class Teacher {
 
     @NotNull
     @Column(name = "surname", length = 75)
-    private String surname;
+    private String lastname;
 
     @NotNull
     @Positive
