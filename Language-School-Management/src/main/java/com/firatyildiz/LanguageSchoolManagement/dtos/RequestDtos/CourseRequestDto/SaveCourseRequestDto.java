@@ -1,14 +1,11 @@
 package com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.CourseRequestDto;
 
-import com.firatyildiz.LanguageSchoolManagement.entity.Classroom;
-import com.firatyildiz.LanguageSchoolManagement.entity.Student;
-import com.firatyildiz.LanguageSchoolManagement.entity.Teacher;
+
 import lombok.Data;
 
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Data
 public class SaveCourseRequestDto {
@@ -27,14 +24,14 @@ public class SaveCourseRequestDto {
     private LocalDate endDate;
 
 
-    private byte[] materials;
 
 
-    private Classroom classroom;
+
+    private long classroomId;
 
 
-    private Teacher teacher;
+    private long teacherId;
 
 
-    private List<Student> students = new ArrayList<>();
+    private long studentId;
 }

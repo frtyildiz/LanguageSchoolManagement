@@ -24,11 +24,9 @@ public class UpdateCourseRequestDto {
     private LocalDate endDate;
 
 
-    private byte[] materials;
+
+    private long classroomId;
 
 
-    private Classroom classroom;
-
-
-    private Teacher teacher;
+    private long teacherId;
 }

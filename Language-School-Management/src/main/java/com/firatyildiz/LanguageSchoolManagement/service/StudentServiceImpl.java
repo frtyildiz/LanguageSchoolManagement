@@ -67,8 +67,11 @@ public class StudentServiceImpl implements StudentService{
 
         List<Course> courses = new ArrayList<>();
         courses.add(course);
-
         student.setCourses(courses);
+
+        List<Student> students = new ArrayList<>();
+        students.add(student);
+        course.setStudents(students);
 
         studentRepository.save(student);
 

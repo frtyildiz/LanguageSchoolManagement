@@ -1,7 +1,6 @@
 package com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.CourseRequestDto;
 
-import com.firatyildiz.LanguageSchoolManagement.entity.Classroom;
-import com.firatyildiz.LanguageSchoolManagement.entity.Teacher;
+
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -22,11 +21,11 @@ public class SaveCourseWithoutStudentRequestDto {
     private LocalDate endDate;
 
 
-    private byte[] materials;
 
 
-    private Classroom classroom;
+
+    private long classroomId;
 
 
-    private Teacher teacher;
+    private long teacherId;
 }

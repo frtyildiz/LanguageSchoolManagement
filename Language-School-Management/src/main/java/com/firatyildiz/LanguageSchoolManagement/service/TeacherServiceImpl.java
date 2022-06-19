@@ -66,7 +66,6 @@ public class TeacherServiceImpl implements TeacherService {
 
         List<Course> courses = new ArrayList<>();
         courses.add(course);
-
         teacher.setCourses(courses);
 
         teacherRepository.save(teacher);

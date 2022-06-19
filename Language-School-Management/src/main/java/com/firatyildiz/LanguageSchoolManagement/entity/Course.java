@@ -31,12 +31,8 @@ public class Course {
     @Column(name = "end_date")
     private LocalDate endDate;
 
-    @Column(name = "capacity")
-    private int capacity;
 
-    @Lob
-    @Column(name = "courses_materials")
-    private byte[] materials;
+
 
     @ManyToOne
     @JoinColumn
@@ -49,12 +45,5 @@ public class Course {
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Student> students = new ArrayList<>();
 
-    public int getCapacity() {
-        return capacity - students.size();
-    }
 
-    public void setCapacity(int capacity) {
-        Classroom classr = new Classroom();
-        this.capacity = classr.getCapacity();
-    }
 }

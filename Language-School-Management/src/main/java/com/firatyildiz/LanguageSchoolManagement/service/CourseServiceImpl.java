@@ -6,8 +6,10 @@ import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.CourseRequestDt
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.CourseRequestDto.SaveStudentToCourseRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.CourseRequestDto.UpdateCourseRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.ResponseDto.CourseResponseDto;
+import com.firatyildiz.LanguageSchoolManagement.entity.Classroom;
 import com.firatyildiz.LanguageSchoolManagement.entity.Course;
 import com.firatyildiz.LanguageSchoolManagement.entity.Student;
+import com.firatyildiz.LanguageSchoolManagement.entity.Teacher;
 import com.firatyildiz.LanguageSchoolManagement.repository.CourseRepository;
 import com.firatyildiz.LanguageSchoolManagement.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +17,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -26,36 +29,82 @@ public class CourseServiceImpl implements CourseService{
 
     private final CourseRepository courseRepository;
 
-    private final StudentRepository studentRepository;
+
 
     private final ModelMapper modelMapper;
 
-    private final Course course;
+    private final ClassroomService classroomService;
+
+    private final TeacherService teacherService;
+
+    private final StudentService studentService;
+
+    private final StudentRepository studentRepository;
 
 
-    public String saveCourse (SaveCourseRequestDto saveCourseResponseDto)
+    public String saveCourse (SaveCourseRequestDto saveCourseRequestDto)
     {
-        if (course.getCapacity() < 0)
-        {
-            return "Capacity is full";
-        }
-        else
-        {
-            Course course = modelMapper.map(saveCourseResponseDto, Course.class);
 
-            course = courseRepository.save(course);
 
-            return "Classroom Has Been Created.";
-        }
+
+        String courseNameRequest = saveCourseRequestDto.getCourseName();
+        String courseLevelRequest = saveCourseRequestDto.getCourseLevel();
+        LocalDate startDateRequest = saveCourseRequestDto.getStartDate();
+        LocalDate endDateRequest = saveCourseRequestDto.getEndDate();
+        long classroomIdRequest = saveCourseRequestDto.getClassroomId();
+        long teacherIdRequest = saveCourseRequestDto.getTeacherId();
+        long studentIdRequest = saveCourseRequestDto.getStudentId();
+
+        Course course = new Course();
+        Classroom classroom = classroomService.findClassroomById(classroomIdRequest);
+        Teacher teacher = teacherService.findTeacherById(teacherIdRequest);
+        Student student = studentService.findStudentById(studentIdRequest);
+
+        course.setCourseName(courseNameRequest);
+        course.setCourseLevel(courseLevelRequest);
+        course.setStartDate(startDateRequest);
+        course.setEndDate(endDateRequest);
+        course.setClassroom(classroom);
+        course.setTeacher(teacher);
+
+        List<Student> students = new ArrayList<>();
+        students.add(student);
+        course.setStudents(students);
+
+        List<Course> courses = new ArrayList<>();
+        courses.add(course);
+        student.setCourses(courses);
+
+
+        courseRepository.save(course);
+
+
+        return "Course Has Been Created.";
     }
 
     public String saveCourseWithoutStudent (SaveCourseWithoutStudentRequestDto saveCourseWithoutStudentRequestDto)
     {
-        Course course = modelMapper.map(saveCourseWithoutStudentRequestDto, Course.class);
+        String courseNameRequest = saveCourseWithoutStudentRequestDto.getCourseName();
+        String courseLevelRequest = saveCourseWithoutStudentRequestDto.getCourseLevel();
+        LocalDate startDateRequest = saveCourseWithoutStudentRequestDto.getStartDate();
+        LocalDate endDateRequest = saveCourseWithoutStudentRequestDto.getEndDate();
+        long classroomIdRequest = saveCourseWithoutStudentRequestDto.getClassroomId();
+        long teacherIdRequest = saveCourseWithoutStudentRequestDto.getTeacherId();
 
-        course = courseRepository.save(course);
+        Course course = new Course();
+        Classroom classroom = classroomService.findClassroomById(classroomIdRequest);
+        Teacher teacher = teacherService.findTeacherById(teacherIdRequest);
 
-        return "Classroom Has Been Created.";
+        course.setCourseName(courseNameRequest);
+        course.setCourseLevel(courseLevelRequest);
+        course.setStartDate(startDateRequest);
+        course.setEndDate(endDateRequest);
+        course.setClassroom(classroom);
+        course.setTeacher(teacher);
+
+        courseRepository.save(course);
+
+        return "Course Has Been Created.";
     }
 
     public Course findCourseById (long courseId)
@@ -65,25 +114,23 @@ public class CourseServiceImpl implements CourseService{
 
     public String addStudentToCourseByIds (SaveStudentToCourseRequestDto saveStudentToCourseRequestDto)
     {
-        if (course.getCapacity() < 0)
-        {
-            return "Capacity is full.";
-        }
-        else
-        {
-            long courseId = saveStudentToCourseRequestDto.getCourseId();
-            long studentId = saveStudentToCourseRequestDto.getStudentId();
+        long courseId = saveStudentToCourseRequestDto.getCourseId();
+        long studentId = saveStudentToCourseRequestDto.getStudentId();
 
-            Course course = courseRepository.findById(courseId).get();
-            Student student = studentRepository.findById(studentId).get();
+        Course course = courseRepository.findById(courseId).get();
+        Student student = studentRepository.findById(studentId).get();
 
-            List<Student> students = new ArrayList<>();
-            students.add(student);
+        List<Student> students = new ArrayList<>();
+        students.add(student);
+        course.setStudents(students);
 
-            course.setStudents(students);
+        List<Course> courses = new ArrayList<>();
+        courses.add(course);
+        student.setCourses(courses);
 
-            return "Added Student";
-        }
+        courseRepository.save(course);
+
+        return "Added Student";
     }
 
     public String updateCourseById (UpdateCourseRequestDto updateCourseRequestDto)
