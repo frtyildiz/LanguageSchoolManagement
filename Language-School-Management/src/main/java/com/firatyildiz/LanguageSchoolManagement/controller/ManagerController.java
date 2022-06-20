@@ -57,5 +57,4 @@ public class ManagerController {
 
         return new ResponseEntity<>(managerResponseDtos, HttpStatus.OK);
     }
-
 }

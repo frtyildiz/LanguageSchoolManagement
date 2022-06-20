@@ -52,7 +52,6 @@ public class ClassroomServiceImpl implements ClassroomService{
 
         List<Course> courses = new ArrayList<>();
         courses.add(course);
-
         classroom.setCourses(courses);
 
         classroomRepository.save(classroom);
@@ -72,7 +71,6 @@ public class ClassroomServiceImpl implements ClassroomService{
 
         return "Changes Saved.";
     }
-
 
     public String deleteClassroomById (long classroomId)
     {
@@ -97,5 +95,4 @@ public class ClassroomServiceImpl implements ClassroomService{
 
         return classroomResponseDtos;
     }
-
 }

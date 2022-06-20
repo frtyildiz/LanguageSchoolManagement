@@ -19,12 +19,9 @@ public class SaveTeacherRequestDto {
 
     private int phoneNo;
 
-
     private String address;
 
-
     private LocalDate birthday;
-
 
     private String email;
 }

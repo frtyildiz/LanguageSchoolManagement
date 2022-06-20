@@ -9,22 +9,17 @@ public class CourseResponseDto {
 
     private long id;
 
-
     private String courseName;
-
 
     private String courseLevel;
 
-
     private LocalDate startDate;
-
 
     private LocalDate endDate;
 
     private int capacity;
+
     private Classroom classroom;
 
-
     private Teacher teacher;
-
 }

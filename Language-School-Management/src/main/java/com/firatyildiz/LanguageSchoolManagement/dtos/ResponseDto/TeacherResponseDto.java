@@ -21,12 +21,9 @@ public class TeacherResponseDto {
 
     private int phoneNo;
 
-
     private String address;
 
-
     private LocalDate birthday;
-
 
     private String email;
 }

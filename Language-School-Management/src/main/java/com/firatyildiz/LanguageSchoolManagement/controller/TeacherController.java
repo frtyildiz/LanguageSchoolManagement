@@ -67,6 +67,4 @@ public class TeacherController {
 
         return new ResponseEntity<>(teacherResponseDtos, HttpStatus.OK);
     }
-
-
 }

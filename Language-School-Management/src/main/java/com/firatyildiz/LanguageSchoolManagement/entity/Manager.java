@@ -28,7 +28,7 @@ public class Manager {
     @NotNull
     private String lastname;
 
-    @Column(name = "phone_number", length = 10)
+    @Column(name = "phone_number", length = 11)
     private int phoneNumber;
 
     @Column(name = "address", length = 200)
@@ -40,5 +40,4 @@ public class Manager {
     @Column(name = "email")
     @Email(message = "Email is mandatory")
     private String email;
-
 }

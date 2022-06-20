@@ -77,5 +77,4 @@ public class CourseController {
 
         return new ResponseEntity<>(courseResponseDtos, HttpStatus.OK);
     }
-
 }

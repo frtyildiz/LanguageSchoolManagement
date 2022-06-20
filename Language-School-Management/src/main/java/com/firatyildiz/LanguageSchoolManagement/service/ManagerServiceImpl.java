@@ -32,12 +32,10 @@ public class ManagerServiceImpl implements ManagerService{
         return "Manager Has Been Created.";
     }
 
-
     public Manager findManagerById (long managerId)
     {
         return managerRepository.findById(managerId).get();
     }
-
 
     public String updateManagerById(UpdateManagerRequestDto updateManagerRequestDto)
     {
@@ -52,7 +50,6 @@ public class ManagerServiceImpl implements ManagerService{
         return "Changes Saved.";
     }
 
-
     public String deleteManagerById(long managerId)
     {
         Optional<Manager> managerOptional = managerRepository.findById(managerId);
@@ -61,7 +58,6 @@ public class ManagerServiceImpl implements ManagerService{
 
         return "The Manager Deleted.";
     }
-
 
     public List<ManagerResponseDto> findAllManager()
     {
@@ -77,5 +73,4 @@ public class ManagerServiceImpl implements ManagerService{
 
         return managerResponseDtos;
     }
-
 }

@@ -30,7 +30,7 @@ public class Student {
     @NotNull
     private String lastname;
 
-    @Column(name = "phone_number", length = 10)
+    @Column(name = "phone_number", length = 11)
     private int phoneNumber;
 
     @Column(name = "address", length = 200)
@@ -45,5 +45,4 @@ public class Student {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Course> courses = new ArrayList<>();
-
 }

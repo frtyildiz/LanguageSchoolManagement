@@ -1,6 +1,5 @@
 package com.firatyildiz.LanguageSchoolManagement.service;
 
-
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.CourseRequestDto.SaveCourseRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.CourseRequestDto.SaveCourseWithoutStudentRequestDto;
 import com.firatyildiz.LanguageSchoolManagement.dtos.RequestDtos.CourseRequestDto.SaveStudentToCourseRequestDto;
@@ -29,8 +28,6 @@ public class CourseServiceImpl implements CourseService{
 
     private final CourseRepository courseRepository;
 
-
-
     private final ModelMapper modelMapper;
 
     private final ClassroomService classroomService;
@@ -41,12 +38,8 @@ public class CourseServiceImpl implements CourseService{
 
     private final StudentRepository studentRepository;
 
-
     public String saveCourse (SaveCourseRequestDto saveCourseRequestDto)
     {
-
-
-
         String courseNameRequest = saveCourseRequestDto.getCourseName();
         String courseLevelRequest = saveCourseRequestDto.getCourseLevel();
         LocalDate startDateRequest = saveCourseRequestDto.getStartDate();
@@ -75,9 +68,7 @@ public class CourseServiceImpl implements CourseService{
         courses.add(course);
         student.setCourses(courses);
 
-
         courseRepository.save(course);
-
 
         return "Course Has Been Created.";
     }
@@ -170,5 +161,4 @@ public class CourseServiceImpl implements CourseService{
 
         return courseResponseDtos;
     }
-
 }

@@ -9,7 +9,6 @@ import com.firatyildiz.LanguageSchoolManagement.entity.Course;
 
 import java.util.List;
 
-
 public interface CourseService {
     String saveCourse (SaveCourseRequestDto saveCourseResponseDto);
 

@@ -22,5 +22,4 @@ public class UpdateManagerRequestDto {
     private LocalDate birthday;
 
     private String email;
-
 }

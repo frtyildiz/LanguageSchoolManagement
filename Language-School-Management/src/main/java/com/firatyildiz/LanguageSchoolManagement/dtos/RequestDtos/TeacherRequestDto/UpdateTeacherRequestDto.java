@@ -21,12 +21,9 @@ public class UpdateTeacherRequestDto {
 
     private int phoneNo;
 
-
     private String address;
 
-
     private LocalDate birthday;
-
 
     private String email;
 }

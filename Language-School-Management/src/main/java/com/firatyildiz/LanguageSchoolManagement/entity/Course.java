@@ -31,9 +31,6 @@ public class Course {
     @Column(name = "end_date")
     private LocalDate endDate;
 
-
-
-
     @ManyToOne
     @JoinColumn
     private Classroom classroom;
@@ -44,6 +41,4 @@ public class Course {
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Student> students = new ArrayList<>();
-
-
 }

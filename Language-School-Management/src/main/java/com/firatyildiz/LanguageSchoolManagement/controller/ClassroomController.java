@@ -67,6 +67,4 @@ public class ClassroomController {
 
         return new ResponseEntity<>(classroomResponseDtos, HttpStatus.OK);
     }
-
-
 }

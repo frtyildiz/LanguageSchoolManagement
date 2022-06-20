@@ -16,13 +16,9 @@ public interface StudentService {
 
     String updateStudentById (UpdateStudentRequestDto updateStudentRequestDto);
 
-
     String addCourseToStudentById (AddCourseToStudentRequestDto addCourseToStudentById);
-
 
     String deleteStudentById (long studentId);
 
-
     List<StudentResponseDto> findAllStudent();
-
 }

@@ -12,19 +12,13 @@ public interface TeacherService {
 
     String saveTeacher (SaveTeacherRequestDto saveTeacherRequestDto);
 
-
     Teacher findTeacherById (long teacherId);
-
 
     String updateTeacherById (UpdateTeacherRequestDto updateTeacherRequestDto);
 
-
     String addCourseToTeacherById (AddCourseToTeacherRequestDto addCourseToTeacherRequestDto);
-
 
     String deleteTeacherById (long teacherId);
 
-
     List<TeacherResponseDto> findAllTeacher ();
-
 }
