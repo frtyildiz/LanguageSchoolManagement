@@ -71,8 +71,8 @@
       <recent name="com.firatyildiz.LanguageSchoolManagement.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TeacherServiceImplTest.testSaveTeacher">
-    <configuration name="StudentServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TeacherServiceImplTest">
+    <configuration name="TeacherServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Language-School-Management" />
       <extension name="coverage">
         <pattern>
@@ -81,13 +81,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.firatyildiz.LanguageSchoolManagement.service" />
-      <option name="MAIN_CLASS_NAME" value="com.firatyildiz.LanguageSchoolManagement.service.StudentServiceImplTest" />
+      <option name="MAIN_CLASS_NAME" value="com.firatyildiz.LanguageSchoolManagement.service.TeacherServiceImplTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StudentServiceImplTest.testAddCourseToStudentById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TeacherServiceImplTest.testAddCourseToTeacherById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Language-School-Management" />
       <extension name="coverage">
         <pattern>
@@ -96,14 +96,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.firatyildiz.LanguageSchoolManagement.service" />
-      <option name="MAIN_CLASS_NAME" value="com.firatyildiz.LanguageSchoolManagement.service.StudentServiceImplTest" />
-      <option name="METHOD_NAME" value="testAddCourseToStudentById" />
+      <option name="MAIN_CLASS_NAME" value="com.firatyildiz.LanguageSchoolManagement.service.TeacherServiceImplTest" />
+      <option name="METHOD_NAME" value="testAddCourseToTeacherById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StudentServiceImplTest.testDeleteStudentById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TeacherServiceImplTest.testDeleteTeacherById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Language-School-Management" />
       <extension name="coverage">
         <pattern>
@@ -112,24 +112,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.firatyildiz.LanguageSchoolManagement.service" />
-      <option name="MAIN_CLASS_NAME" value="com.firatyildiz.LanguageSchoolManagement.service.StudentServiceImplTest" />
-      <option name="METHOD_NAME" value="testDeleteStudentById" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StudentServiceImplTest.testUpdateStudentById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Language-School-Management" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.firatyildiz.LanguageSchoolManagement.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.firatyildiz.LanguageSchoolManagement.service" />
-      <option name="MAIN_CLASS_NAME" value="com.firatyildiz.LanguageSchoolManagement.service.StudentServiceImplTest" />
-      <option name="METHOD_NAME" value="testUpdateStudentById" />
+      <option name="MAIN_CLASS_NAME" value="com.firatyildiz.LanguageSchoolManagement.service.TeacherServiceImplTest" />
+      <option name="METHOD_NAME" value="testDeleteTeacherById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -151,13 +135,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TeacherServiceImplTest.testUpdateTeacherById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Language-School-Management" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.firatyildiz.LanguageSchoolManagement.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.firatyildiz.LanguageSchoolManagement.service" />
+      <option name="MAIN_CLASS_NAME" value="com.firatyildiz.LanguageSchoolManagement.service.TeacherServiceImplTest" />
+      <option name="METHOD_NAME" value="testUpdateTeacherById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TeacherServiceImplTest" />
+        <item itemvalue="JUnit.TeacherServiceImplTest.testDeleteTeacherById" />
+        <item itemvalue="JUnit.TeacherServiceImplTest.testAddCourseToTeacherById" />
+        <item itemvalue="JUnit.TeacherServiceImplTest.testUpdateTeacherById" />
         <item itemvalue="JUnit.TeacherServiceImplTest.testSaveTeacher" />
-        <item itemvalue="JUnit.StudentServiceImplTest" />
-        <item itemvalue="JUnit.StudentServiceImplTest.testDeleteStudentById" />
-        <item itemvalue="JUnit.StudentServiceImplTest.testAddCourseToStudentById" />
-        <item itemvalue="JUnit.StudentServiceImplTest.testUpdateStudentById" />
       </list>
     </recent_temporary>
   </component>
