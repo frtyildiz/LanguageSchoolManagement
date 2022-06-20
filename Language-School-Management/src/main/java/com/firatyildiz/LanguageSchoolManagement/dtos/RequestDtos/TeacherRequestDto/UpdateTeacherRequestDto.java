@@ -13,7 +13,7 @@ public class UpdateTeacherRequestDto {
 
     private String name;
 
-    private String surname;
+    private String lastname;
 
     private int salary;
 
