@@ -1,4 +1,4 @@
-# LanguageSchoolManagement
+# Language School Management
 
 ## Requirements
 
